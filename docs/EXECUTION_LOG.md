@@ -2271,19 +2271,26 @@ max-content`; Ergebniswerte umbrechen ohne Ellipse. Damit folgt die
 - Auftrag: Den veröffentlichten statischen Release zusätzlich als GitHub Page
   bereitstellen.
 - ADR RELEASE-P2-01: GitHub Pages veröffentlicht den vorhandenen lokalen
-  `build:pages`-Output über den offiziellen Actions-Artefaktweg. Der Browser-
-  only-Geometrievertrag bleibt unverändert; es entsteht kein Anwendungsserver.
-- Voraussichtliche Dateien: GitHub-Pages-Workflow sowie Arbeits- und
-  Einsatzdokumentation.
-- Umsetzung: `.github/workflows/pages.yml` baut bei jedem Push auf `main` mit
-  Node.js 22.13, lädt ausschließlich `dist-pages` als Pages-Artefakt hoch und
-  veröffentlicht es über die geschützte `github-pages`-Umgebung. Alle erzeugten
-  Script-, Stylesheet-, Manifest-, Worker- und WASM-Pfade sind relativ und damit
-  unter dem Repositorypfad funktionsfähig.
+  `build:pages`-Output als eigenständigen `gh-pages`-Branch. Der Browser-only-
+  Geometrievertrag bleibt unverändert; es entsteht kein Anwendungsserver.
+- Voraussichtliche Dateien: Arbeits- und Einsatzdokumentation sowie der separat
+  erzeugte Veröffentlichungsbranch.
+- Fehlgeschlagener Ansatz: Der zunächst eingerichtete offizielle Actions-
+  Artefaktweg wurde von GitHub vor dem ersten Jobschritt abgewiesen, weil das
+  Konto wegen eines Abrechnungsproblems für Actions gesperrt ist. Der Workflow
+  wurde deshalb wieder entfernt und nicht als verdeckter Fehler beibehalten.
+- Umsetzung: Der geprüfte Inhalt von `dist-pages` wird ohne Actions-Abhängigkeit
+  auf `gh-pages` veröffentlicht. Alle erzeugten Script-, Stylesheet-, Manifest-,
+  Worker- und WASM-Pfade sind relativ und damit unter dem Repositorypfad
+  funktionsfähig.
 - Prüfung 2026-09-05: `npm run lint`, 18 Vitest-Dateien / 130 Tests,
   `npm run build` einschließlich Offline-Shell-Prüfung und
   `npm run build:pages` erfolgreich. Die bekannte nicht blockierende
   Bundle-Größenwarnung bleibt bestehen.
+- Veröffentlichung 2026-09-05: GitHub Pages Build 1196022690 veröffentlichte
+  `gh-pages`-Commit `061eec3` erfolgreich unter
+  <https://dr-89.github.io/local-mold-studio/>. Startseite, Web-App-Manifest,
+  Service Worker und Manifold-WASM liefern jeweils HTTP 200.
 
 ## 2026-08-26 - Codex / Model Splitter Smart Cut Stufe 2
 

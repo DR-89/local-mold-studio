@@ -1154,11 +1154,11 @@ Repository als GitHub Page bereitgestellt.
 
 1. Der vorhandene `build:pages`-Build bleibt für den Repository-Unterpfad und
    seine lokalen Worker-/Manifest-Assets geeignet.
-2. Ein GitHub-Actions-Workflow baut ausschließlich aus dem versionierten
-   Quellbestand und veröffentlicht `dist-pages` über GitHub Pages.
-3. Pages verwendet den Actions-Build des `main`-Branches; keine Modelldaten,
+2. Der geprüfte Inhalt von `dist-pages` wird als eigenständiger
+   Veröffentlichungsstand auf dem Branch `gh-pages` bereitgestellt.
+3. Pages verwendet den Root des `gh-pages`-Branches; keine Modelldaten,
    Telemetrie oder Server-Geometrie werden ergänzt.
 4. Build, Local-only-Tests und die veröffentlichte URL werden verifiziert.
 
-**Abnahme:** <https://dr-89.github.io/local-mold-studio/> liefert den aktuellen
-statischen Build, während die Modellverarbeitung vollständig im Browser bleibt.
+**Abnahme:** <https://dr-89.github.io/local-mold-studio/> liefert den geprüften
+statischen Release, während die Modellverarbeitung vollständig im Browser bleibt.
