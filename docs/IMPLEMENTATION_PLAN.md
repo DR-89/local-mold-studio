@@ -1146,3 +1146,19 @@ lokalen Nutzerdaten und wird eindeutig unter GPL Version 3 bereitgestellt.
 **Abnahme:** Der Git-Index enthält ausschließlich reproduzierbaren Quellcode und
 Dokumentation ohne personenbezogene Treffer; das öffentliche GitHub-Repository
 weist GPL-3.0 als Lizenz aus.
+
+## Paket RELEASE-P2 - GitHub Pages
+
+**Ziel:** Die statische Offline-Anwendung wird direkt aus dem öffentlichen
+Repository als GitHub Page bereitgestellt.
+
+1. Der vorhandene `build:pages`-Build bleibt für den Repository-Unterpfad und
+   seine lokalen Worker-/Manifest-Assets geeignet.
+2. Ein GitHub-Actions-Workflow baut ausschließlich aus dem versionierten
+   Quellbestand und veröffentlicht `dist-pages` über GitHub Pages.
+3. Pages verwendet den Actions-Build des `main`-Branches; keine Modelldaten,
+   Telemetrie oder Server-Geometrie werden ergänzt.
+4. Build, Local-only-Tests und die veröffentlichte URL werden verifiziert.
+
+**Abnahme:** <https://dr-89.github.io/local-mold-studio/> liefert den aktuellen
+statischen Build, während die Modellverarbeitung vollständig im Browser bleibt.

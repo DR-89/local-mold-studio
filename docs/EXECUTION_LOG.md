@@ -2265,6 +2265,26 @@ max-content`; Ergebniswerte umbrechen ohne Ellipse. Damit folgt die
   GitHub weist das Repository als öffentlich aus und erkennt die Lizenz als
   GNU General Public License v3.0.
 
+## 2026-09-05 - Codex / Paket RELEASE-P2 GitHub Pages
+
+- Start: 2026-09-05, ausführender Agent: Codex.
+- Auftrag: Den veröffentlichten statischen Release zusätzlich als GitHub Page
+  bereitstellen.
+- ADR RELEASE-P2-01: GitHub Pages veröffentlicht den vorhandenen lokalen
+  `build:pages`-Output über den offiziellen Actions-Artefaktweg. Der Browser-
+  only-Geometrievertrag bleibt unverändert; es entsteht kein Anwendungsserver.
+- Voraussichtliche Dateien: GitHub-Pages-Workflow sowie Arbeits- und
+  Einsatzdokumentation.
+- Umsetzung: `.github/workflows/pages.yml` baut bei jedem Push auf `main` mit
+  Node.js 22.13, lädt ausschließlich `dist-pages` als Pages-Artefakt hoch und
+  veröffentlicht es über die geschützte `github-pages`-Umgebung. Alle erzeugten
+  Script-, Stylesheet-, Manifest-, Worker- und WASM-Pfade sind relativ und damit
+  unter dem Repositorypfad funktionsfähig.
+- Prüfung 2026-09-05: `npm run lint`, 18 Vitest-Dateien / 130 Tests,
+  `npm run build` einschließlich Offline-Shell-Prüfung und
+  `npm run build:pages` erfolgreich. Die bekannte nicht blockierende
+  Bundle-Größenwarnung bleibt bestehen.
+
 ## 2026-08-26 - Codex / Model Splitter Smart Cut Stufe 2
 
 - Start: 2026-08-26, ausführender Agent: Codex.
