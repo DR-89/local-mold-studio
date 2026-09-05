@@ -2260,6 +2260,10 @@ max-content`; Ergebniswerte umbrechen ohne Ellipse. Damit folgt die
   18 Dateien / 130 Tests erfolgreich; `npm run build` einschließlich
   Offline-App-Shell-Prüfung erfolgreich. Die bekannte nicht blockierende
   Bundle-Größenwarnung bleibt bestehen.
+- Veröffentlichung 2026-09-05: Der geprüfte Bestand wurde auf dem Branch
+  `main` unter <https://github.com/DR-89/local-mold-studio> veröffentlicht.
+  GitHub weist das Repository als öffentlich aus und erkennt die Lizenz als
+  GNU General Public License v3.0.
 
 ## 2026-08-26 - Codex / Model Splitter Smart Cut Stufe 2
 
